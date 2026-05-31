@@ -8,16 +8,21 @@ player_inventory = {}
 
 coin_prompt = "How many coins do you have? "
 coin_input = input(coin_prompt)
-player_coins = int(coin_input)
+coins = int(coin_input)
 
 
 def handle_purchase(coins_available, merchant_inv, player_inv):
 
-
     for item, details in merchant_inv.items():
-        print(f"Check out this {item}!, it costs {details['price']} coins. Only {details['stock']} unit(s) left")
+        print(
+            f"Check out this {item}!, it costs {details['price']} coins. "
+            f"Only {details['stock']} unit(s) left"
+        )
 
-    print(f"\nWhat would you like to buy? [available coins: {coins_available}]")
+    print(
+        f"\nWhat would you like to buy? "
+        f"[available coins: {coins_available}]"
+        )
 
     player_input = input("> ")
 
@@ -38,7 +43,10 @@ def handle_purchase(coins_available, merchant_inv, player_inv):
                     player_inv[player_input] = 1
 
             else:
-                print("Looks like you don't have enough coins to buy this item.")
+                print(
+                    "Looks like you don't have "
+                    "enough coins to buy this item."
+                )
 
         else:
             print("I'm afraid that this item is out of stock.")
@@ -49,8 +57,8 @@ def handle_purchase(coins_available, merchant_inv, player_inv):
     return coins_available
 
 
-player_coins = handle_purchase(player_coins, merchant_inventory, player_inventory)
+coins = handle_purchase(coins, merchant_inventory, player_inventory)
 
-print(f"Remaining funds: {player_coins}")
+print(f"Remaining funds: {coins}")
 print(merchant_inventory)
 print(player_inventory)
