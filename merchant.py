@@ -44,6 +44,7 @@ def handle_purchase(coins_available, merchant_inv, player_inv):
     return coins_available
 
 
+# Testing grounds.
 if __name__ == "__main__":
     merchant_inventory = {
         "Health Potion": {"price": 10, "stock": 0},

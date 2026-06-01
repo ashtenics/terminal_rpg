@@ -7,5 +7,6 @@ venv/
 env/
 .env
 
-# Save files
+# Save files, personal items
 player_state.json
+todo.txt
