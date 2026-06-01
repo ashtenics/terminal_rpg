@@ -6,3 +6,6 @@ __pycache__/
 venv/
 env/
 .env
+
+# Save files
+player_state.json

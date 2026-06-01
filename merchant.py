@@ -1,16 +1,3 @@
-merchant_inventory = {
-    "Health Potion": {"price": 10, "stock": 0},
-    "Iron Sword": {"price": 50, "stock": 1},
-    "Bread": {"price": 2, "stock": 20},
-}
-
-player_inventory = {}
-
-coin_prompt = "How many coins do you have? "
-coin_input = input(coin_prompt)
-coins = int(coin_input)
-
-
 def handle_purchase(coins_available, merchant_inv, player_inv):
 
     for item, details in merchant_inv.items():
@@ -57,8 +44,21 @@ def handle_purchase(coins_available, merchant_inv, player_inv):
     return coins_available
 
 
-coins = handle_purchase(coins, merchant_inventory, player_inventory)
+if __name__ == "__main__":
+    merchant_inventory = {
+        "Health Potion": {"price": 10, "stock": 0},
+        "Iron Sword": {"price": 50, "stock": 1},
+        "Bread": {"price": 2, "stock": 20},
+    }
 
-print(f"Remaining funds: {coins}")
-print(merchant_inventory)
-print(player_inventory)
+    player_inventory = {}
+
+    coin_prompt = "How many coins do you have? "
+    coin_input = input(coin_prompt)
+    coins = int(coin_input)
+
+    coins = handle_purchase(coins, merchant_inventory, player_inventory)
+
+    print(f"Remaining funds: {coins}")
+    print(merchant_inventory)
+    print(player_inventory)

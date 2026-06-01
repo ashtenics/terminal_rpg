@@ -1,0 +1,48 @@
+{
+    "Town Square": {
+        "description": "Starting location",
+        "exits": {
+            "north": "Dense Woods",
+            "south": "Cliffs",
+            "east": "Merchant Shop",
+            "west": "Hanging Bridge"
+        },
+        "required_level": 0
+    },
+    "Merchant Shop": {
+        "description": "You can find all sorts of things in this shop!",
+        "exits": {
+            "west": "Town Square"
+        },
+        "required_level": 0
+    },
+    "Hanging Bridge": {
+        "description": "A rope bridge constructed from aged planks that can break any second.",
+        "exits": {
+            "west": "Beach",
+            "east": "Town Square"
+        },
+        "required_level": 2
+    },
+    "Beach": {
+        "description": "A relaxing seaside experience to calm your nerves.",
+        "exits": {
+            "east": "Hanging Bridge"
+        },
+        "required_level": 2
+    },
+    "Cliffs": {
+        "description": "A dangerous landscape with combination of deadly monsters.",
+        "exits": {
+            "north": "Town Square"
+        },
+        "required_level": 4
+    },
+    "Dense Woods": {
+        "description": "Spooky scary forest filled to a brim with enemies.",
+        "exits": {
+            "south": "Town Square"
+        },
+        "required_level": 3
+    }
+}
