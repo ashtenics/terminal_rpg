@@ -8,5 +8,5 @@ env/
 .env
 
 # Save files, personal items
-player_state.json
+player_save_data.json
 todo.txt

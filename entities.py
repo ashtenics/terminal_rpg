@@ -8,10 +8,10 @@ class LivingEntity():
 
 class Player(LivingEntity):
 
-    def __init__(self, name, health, damage, defence, max_health, level, gold, location, xp):
+    def __init__(self, name, health, damage, defence, max_health, level, gold, location, xp, inventory):
         super().__init__(name, health, damage, defence)
         self.gold = gold
-        self.inventory = []
+        self.inventory = inventory
         self.level = level
         self.xp = xp
         self.max_health = max_health
@@ -53,9 +53,6 @@ class Player(LivingEntity):
         self.damage += 2
         self.defence += 5
         print(f"LEVEL UP! You are now level {self.level}, Max Health increased to {self.max_health}!")
-    
-    def level(self):
-        return self.level
 
     def heal(self, amount):
         self.health = min(self.max_health, self.health + amount)
@@ -75,8 +72,19 @@ class Player(LivingEntity):
     def is_alive(self):
         return self.health > 0
 
-    def location(self):
-        return self.location
+    def get_player_save_data(self):
+        return {
+            "name": self.name,
+            "health": self.health,
+            "damage": self.damage,
+            "defence": self.defence,
+            "max_health": self.max_health,
+            "level": self.level,
+            "gold": self.gold,
+            "location": self.location,
+            "xp": self.xp,
+            "inventory": self.inventory,
+        }
 
     
 class Enemy(LivingEntity):

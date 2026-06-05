@@ -3,15 +3,18 @@
         "shop_name": "Town Square Provisions",
         "greeting": "Welcome! Need some basic supplies before you head out?",
         "inventory": {
-            "bread": {
+            "1": {
+                "id_name": "bread",
                 "display_name": "Stale Bread",
                 "cost": 3
             },
-            "old_boots": {
+            "2": {
+                "id_name": "old_boots",
                 "display_name": "Old Boots",
                 "cost": 8
             },
-            "torch": {
+            "3": {
+                "id_name": "torch",
                 "display_name": "Torch",
                 "cost": 5
             }
@@ -21,15 +24,18 @@
         "shop_name": "The Wandering Bazaar",
         "greeting": "Looking to buy, traveller? I have the finest wares.",
         "inventory": {
-            "wooden_shield": {
+            "1": {
+                "id_name": "wooden_shield",
                 "display_name": "Wooden Shield",
                 "cost": 15
             },
-            "health_potion": {
+            "2": {
+                "id_name": "health_potion",
                 "display_name": "Health Potion",
                 "cost": 10
             },
-            "iron_sword": {
+            "3": {
+                "id_name": "iron_sword",
                 "display_name": "Iron Sword",
                 "cost": 45
             }

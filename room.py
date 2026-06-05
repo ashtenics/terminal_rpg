@@ -16,7 +16,7 @@ def move(world, current_location, player_level, chosen_direction):
         return current_location
 
 
-def display_info(world, current_location, player_level):
+def display_info(world, current_location, player_level, shops_data):
     print(f"\n  📍 Current Location: {current_location}")
     print("  🚪 Available Exits:")
     
@@ -31,7 +31,13 @@ def display_info(world, current_location, player_level):
     room_actions = world[current_location].get("actions", {})
     if room_actions:
         print("  ✨ Local Actions:")
-        for command, description in room_actions.items():
-            print(f"     • [{command.upper()}] -> {description}")
+        for command, action_target in room_actions.items():
+            # If the action is a shop, look up its real name in shops.json
+            if command == "shop" and action_target in shops_data:
+                clean_description = shops_data[action_target]["shop_name"]
+            else:
+                clean_description = action_target
+                
+            print(f"     • [{command.upper()}] -> {clean_description}")
 
     print()

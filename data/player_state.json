@@ -1,0 +1,12 @@
+{
+    "name": "ash",
+    "health": 100,
+    "damage": 10,
+    "defence": 10,
+    "max_health": 100,
+    "level": 0,
+    "gold": 10,
+    "location": "Town Square",
+    "xp": 0,
+    "inventory": []
+}
