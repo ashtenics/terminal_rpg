@@ -9,7 +9,7 @@
         },
         "required_level": 0,
         "actions": {
-            "shop": "Enter the Merchant Shop",
+            "shop": "town_shop",
             "talk": "Talk to the elder"
         }
     },
@@ -20,7 +20,7 @@
         },
         "required_level": 0,
         "actions": {
-            "shop": "Enter the Merchant Shop"
+            "shop": "bazaar_shop"
         }
     },
     "Hanging Bridge": {

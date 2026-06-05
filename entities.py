@@ -28,7 +28,10 @@ class Player(LivingEntity):
         print(f"Player {self.name} took {final_damage} damage.")
     
     def can_afford(self, amount):
-        return self.gold >= amount
+        if self.gold >= amount:
+            return True
+        else:
+            return False
 
     def pay(self, amount):
         self.gold -= amount
