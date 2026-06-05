@@ -4,17 +4,24 @@
         "exits": {
             "north": "Dense Woods",
             "south": "Cliffs",
-            "east": "Merchant Shop",
+            "east": "Bazaar",
             "west": "Hanging Bridge"
         },
-        "required_level": 0
+        "required_level": 0,
+        "actions": {
+            "shop": "Enter the Merchant Shop",
+            "talk": "Talk to the elder"
+        }
     },
-    "Merchant Shop": {
+    "Bazaar": {
         "description": "You can find all sorts of things in this shop!",
         "exits": {
             "west": "Town Square"
         },
-        "required_level": 0
+        "required_level": 0,
+        "actions": {
+            "shop": "Enter the Merchant Shop"
+        }
     },
     "Hanging Bridge": {
         "description": "A rope bridge constructed from aged planks that can break any second.",
@@ -22,7 +29,7 @@
             "west": "Beach",
             "east": "Town Square"
         },
-        "required_level": 2
+        "required_level": 1
     },
     "Beach": {
         "description": "A relaxing seaside experience to calm your nerves.",
@@ -36,13 +43,21 @@
         "exits": {
             "north": "Town Square"
         },
-        "required_level": 4
+        "required_level": 2,
+        "actions": {
+            "gather": "Collect rocks for stone",
+            "hunt": "Look for wild animals"
+        }
     },
     "Dense Woods": {
         "description": "Spooky scary forest filled to a brim with enemies.",
         "exits": {
             "south": "Town Square"
         },
-        "required_level": 3
+        "required_level": 0,
+        "actions": {
+            "gather": "Chop down trees for wood",
+            "hunt": "Look for wild animals"
+        }
     }
 }

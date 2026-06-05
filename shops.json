@@ -1,0 +1,50 @@
+{
+    "town_merchant": {
+        "shop_name": "Town Square Provisions",
+        "greeting": "Welcome! Need some basic supplies before you head out?",
+        "inventory": {
+            "bread": {
+                "display_name": "Stale Bread",
+                "cost": 3,
+                "type": "consumable",
+                "heal_amount": 8
+            },
+            "old_boots": {
+                "display_name": "Old Boots",
+                "cost": 8,
+                "type": "equipment",
+                "stat_bonus": 2
+            },
+            "torch": {
+                "display_name": "Torch",
+                "cost": 5,
+                "type": "utility",
+                "description": "Lights up dark places"
+            }
+        }
+    },
+    "bazaar_merchant": {
+        "shop_name": "The Wandering Bazaar",
+        "greeting": "Looking to buy, traveller? I have the finest wares.",
+        "inventory": {
+            "wooden_shield": {
+                "display_name": "Wooden Shield",
+                "cost": 15,
+                "type": "equipment",
+                "stat_bonus": 5
+            },
+            "health_potion": {
+                "display_name": "Health Potion",
+                "cost": 10,
+                "type": "consumable",
+                "heal_amount": 25
+            },
+            "iron_sword": {
+                "display_name": "Iron Sword",
+                "cost": 45,
+                "type": "weapon",
+                "stat_bonus": 12
+            }
+        }
+    }
+}

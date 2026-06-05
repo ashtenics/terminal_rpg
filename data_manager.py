@@ -26,14 +26,13 @@ def load_game():
         }
 
 
-def save_game(player_data):
-    with open("player_state.json", "w") as f:
-        json.dump(player_data, f, indent=4)
-    print("Successfuly saved your current progress!")
+def save_data_file(file_name, data_to_save):
+    with open(file_name, "w") as f:
+        json.dump(data_to_save, f, indent=4)
+    print("Successfully saved data!")
 
 
-
-def load_world_map(world_map_file):
-    with open(world_map_file, "r") as f:
-        world_map = json.load(f)
-    return world_map
+def load_data_file(file_name):
+    with open(file_name, "r") as f:
+        loaded_file = json.load(f)
+    return loaded_file
