@@ -1,10 +1,12 @@
 import room
 import ui
 import data_manager
-from entities import Player
+from entities import Player, Enemy
+import random
 
 
 def main():
+    # menu screen, chraracter creation
     ui.display_title_menu()
 
     while True:
@@ -39,9 +41,17 @@ def main():
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
             continue
+    
+    # loading data into file
 
     world_map = data_manager.load_data_file("data/world_map.json")
     shops = data_manager.load_data_file("data/shops.json")
+
+    # safe zones
+
+    safe_zones = ["Town Square", "Bazaar"]
+
+    # main game loop
 
     while True:
 
@@ -57,8 +67,49 @@ def main():
             data_manager.save_data_file("data/player_save_data.json", save_data)
             return
 
+        # movement between locations
+
         elif player_input in world_map[player.location]["exits"]:
             player.location = room.move(world_map, player.location, player.level, player_input)
+
+            # combat initiation
+
+            enemy = Enemy("Slime", 50, 10, 5, 50, 0.4)
+
+            roll = random.random()
+
+            if player.location not in safe_zones:
+                if roll <= enemy.spawn_chance:
+                    print(f"\nA wild {enemy.name} jumps out of the shadows!")
+
+                    while player.health and enemy.health > 0:
+                        ui.display_combat_hud(player.name, player.health, player.max_health, enemy.name, enemy.health, enemy.max_health)
+                        ui.display_combat_menu()
+                        combat_input = input("> ").strip()
+                        
+                        if combat_input == "1":
+                            enemy.take_damage(player.damage)
+                            print(f"\nDealt {max(0, player.damage - enemy.defence)} to {enemy.name} enemy.")
+                            player.take_damage(enemy.damage)
+                            print(f"\nBut {enemy.name} fought back dealing {max(0, enemy.damage - player.defence)}")
+                            player.gain_xp(10)
+                            player.level_up()
+                        
+                        elif combat_input == "2":
+                            print("\nFeature currently unavailable.")
+
+                        elif combat_input == "3":
+                            print(f"Player {player.name} flead the battle.")
+                            break
+
+                        else:
+                            ui.print_alert("Command not found, please try again.")
+                else:
+                    print("\nThe room is quiet for now...")
+            else:
+                print("\nThis is a safe room.")
+
+        # actions, shop
 
         elif player_input in world_map[player.location].get("actions", {}):
             

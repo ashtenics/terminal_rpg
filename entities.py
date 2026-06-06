@@ -1,25 +1,25 @@
 class LivingEntity():
-    def __init__(self, name, health, damage, defence):
+    def __init__(self, name, health, damage, defence, max_health):
         self.name = name
         self.damage = damage
         self.health = health
         self.defence = defence
+        self.max_health = max_health
 
 
 class Player(LivingEntity):
 
     def __init__(self, name, health, damage, defence, max_health, level, gold, location, xp, inventory):
-        super().__init__(name, health, damage, defence)
+        super().__init__(name, health, damage, defence, max_health)
         self.gold = gold
         self.inventory = inventory
         self.level = level
         self.xp = xp
-        self.max_health = max_health
         self.location = location
 
 
     def __str__(self):
-        return f"Player: {self.name} | Health: {self.health} | Level: {self.level} | Gold: {self.gold} | Location: {self.location}"
+        return {self.name}
 
 
     def take_damage(self, incoming_damage):
@@ -46,13 +46,14 @@ class Player(LivingEntity):
             self.level_up()
 
     def level_up(self):
-        self.level += 1
-        self.xp = 0
-        self.max_health += 20
-        self.health = self.max_health
-        self.damage += 2
-        self.defence += 5
-        print(f"LEVEL UP! You are now level {self.level}, Max Health increased to {self.max_health}!")
+        if self.xp >= 100:
+            self.level += 1
+            self.xp = 0
+            self.max_health += 20
+            self.health = self.max_health
+            self.damage += 2
+            self.defence += 5
+            print(f"LEVEL UP! You are now level {self.level}, Max Health increased to {self.max_health}!")
 
     def heal(self, amount):
         self.health = min(self.max_health, self.health + amount)
@@ -88,7 +89,11 @@ class Player(LivingEntity):
 
     
 class Enemy(LivingEntity):
-    def __init__(self, name, damage, health, defence, spawn_chance):
-        super().__init__(name, damage, health, defence)
+    def __init__(self, name, health, damage, defence, max_health, spawn_chance):
+        super().__init__(name, health, damage, defence, max_health)
         self.spawn_chance = spawn_chance
 
+    def take_damage(self, amount):
+        final_damage = max(0, amount - self.defence)
+        self.health -= final_damage
+        print(f"{self.name} took {final_damage} damage.")
